@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.yeetmanlord</groupId>
-    <artifactId>LaserWeaponry</artifactId>
-    <version>1.0</version>
+    <groupId>LaserWeaponry</groupId>
+    <artifactId>com.github.yeetmanlord</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>LaserWeaponry</name>
 
-    <description>A simple plugin that adds laser weaponry including laser eyes and laser guns</description>
+    <description>A plugin that adds in differnt kinds of laser weapons including laser guns and laser eyes</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -72,12 +72,12 @@
         <dependency>
             <groupId>com.github.YeetManLord</groupId>
             <artifactId>RayCastUtility</artifactId>
-            <version>1.1.1</version>
+            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19.2-R0.1-SNAPSHOT</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
