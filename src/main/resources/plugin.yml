@@ -1,0 +1,6 @@
+name: LaserWeaponry
+version: '${project.version}'
+main: com.github.yeetmanlord.laserweaponry.LaserWeaponry
+api-version: 1.19
+authors: [ YeetManLord ]
+description: A simple plugin that adds laser weaponry including laser eyes and laser guns
