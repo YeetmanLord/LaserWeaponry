@@ -17,15 +17,16 @@ public class HandleClick implements Listener {
             if (holder instanceof SelectionMenu) {
                 switch (event.getSlot()) {
                     case 11:
-                        event.getInventory().addItem(Registry.LASER_EYES.getItem());
+                        event.getWhoClicked().getInventory().addItem(Registry.LASER_EYES.getItem());
                         break;
                     case 13:
-                        event.getInventory().addItem(Registry.LASER_GUN.getItem());
+                        event.getWhoClicked().getInventory().addItem(Registry.LASER_GUN.getItem());
                         break;
                     case 15:
-                        event.getInventory().addItem(Registry.SUPER_LASER_GUN.getItem());
+                        event.getWhoClicked().getInventory().addItem(Registry.SUPER_LASER_GUN.getItem());
                         break;
                 }
+                event.setCancelled(true);
             }
         }
 

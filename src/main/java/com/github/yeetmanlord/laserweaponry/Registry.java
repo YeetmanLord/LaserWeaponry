@@ -1,5 +1,6 @@
 package com.github.yeetmanlord.laserweaponry;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class Registry {
     public static final LaserWeapon SUPER_LASER_GUN = register(new SuperLaserGun());
 
     public static LaserWeapon register(LaserWeapon weapon) {
-        nameToWeapon.put(weapon.name, weapon);
+        nameToWeapon.put(ChatColor.translateAlternateColorCodes('&', weapon.name), weapon);
         return weapon;
     }
 

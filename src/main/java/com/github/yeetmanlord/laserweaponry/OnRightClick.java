@@ -1,5 +1,6 @@
 package com.github.yeetmanlord.laserweaponry;
 
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -14,8 +15,10 @@ public class OnRightClick implements Listener {
             for (ItemStack stack : event.getPlayer().getInventory().getArmorContents()) {
                 if (stack.hasItemMeta() && stack.getItemMeta().hasDisplayName()) {
                     LaserWeapon weapon = Registry.nameToWeapon.get(stack.getItemMeta().getDisplayName());
-                    if (weapon != null) {
+                    if (weapon != null && Registry.getCooldownTracker(event.getPlayer()).checkCooldown(weapon)) {
                         weapon.activate(event.getPlayer());
+                    } else if (!Registry.getCooldownTracker(event.getPlayer()).checkCooldown(weapon)) {
+                        event.getPlayer().sendMessage(ChatColor.RED + "You cannot use " + ChatColor.translateAlternateColorCodes('&', weapon.name) + " weapon yet");
                     }
                 }
             }
@@ -23,9 +26,12 @@ public class OnRightClick implements Listener {
             ItemStack stack = event.getItem();
             if (stack.hasItemMeta() && stack.getItemMeta().hasDisplayName()) {
                 LaserWeapon weapon = Registry.nameToWeapon.get(stack.getItemMeta().getDisplayName());
-                if (weapon != null) {
+                if (weapon != null && Registry.getCooldownTracker(event.getPlayer()).checkCooldown(weapon)) {
                     weapon.activate(event.getPlayer());
+                }else if (!Registry.getCooldownTracker(event.getPlayer()).checkCooldown(weapon)) {
+                    event.getPlayer().sendMessage(ChatColor.RED + "You cannot use " + ChatColor.translateAlternateColorCodes('&', weapon.name) + " weapon yet");
                 }
+                event.setCancelled(true);
             }
         }
     }

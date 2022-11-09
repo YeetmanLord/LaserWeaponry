@@ -4,3 +4,15 @@ main: com.github.yeetmanlord.laserweaponry.LaserWeaponry
 api-version: 1.19
 authors: [ YeetManLord ]
 description: A simple plugin that adds laser weaponry including laser eyes and laser guns
+
+permissions:
+  laserweaponry.admin:
+    default: op
+    description: Allows a user to access all laser weapons
+
+commands:
+  laser_weapons:
+    permission: laserweaponry.admin
+    permission-message: "§cYou do not have permission to run this command"
+    aliases:
+      - lasers

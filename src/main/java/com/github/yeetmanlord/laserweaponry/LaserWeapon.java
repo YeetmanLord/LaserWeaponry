@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LaserWeapon {
@@ -45,6 +46,8 @@ public class LaserWeapon {
         this.maxDistance = maxDistance;
         this.slot = slot;
         this.cooldownTicks = cooldownTicks;
+        this.lore = new ArrayList<>();
+        this.lore.addAll(Arrays.asList(lore));
     }
 
     public void activate(Player player) {
@@ -89,7 +92,7 @@ public class LaserWeapon {
                 break;
         }
 
-        return stack != null && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && this.name.equalsIgnoreCase(stack.getItemMeta().getDisplayName());
+        return stack != null && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName() && ChatColor.translateAlternateColorCodes('&', this.name).equalsIgnoreCase(stack.getItemMeta().getDisplayName());
     }
 
     public ItemStack getItem() {
