@@ -29,7 +29,7 @@ public class LaserWeapon {
 
     public final boolean explodeBlocks;
 
-    public final Effect effect;
+    public final String particle;
 
     public final double maxDistance;
 
@@ -37,12 +37,12 @@ public class LaserWeapon {
 
     private final int cooldownTicks;
 
-    public LaserWeapon(float damage, String name, Material weaponMaterial, boolean explodeBlocks, Effect effect, double maxDistance, EquipmentSlot slot, int cooldownTicks, String... lore) {
+    public LaserWeapon(float damage, String name, Material weaponMaterial, boolean explodeBlocks, String particle, double maxDistance, EquipmentSlot slot, int cooldownTicks, String... lore) {
         this.damage = damage;
         this.name = name;
         this.weaponMaterial = weaponMaterial;
         this.explodeBlocks = explodeBlocks;
-        this.effect = effect;
+        this.particle = particle;
         this.maxDistance = maxDistance;
         this.slot = slot;
         this.cooldownTicks = cooldownTicks;
@@ -53,7 +53,7 @@ public class LaserWeapon {
     public void activate(Player player) {
         if (this.shouldRun(player)) {
             RayCastUtility.executeStepByStepWithPrecision(player, maxDistance, true, 0.5D, false, RayCastUtility.Precision.PRECISE_ENTITY, (loc) -> {
-                loc.getWorld().spigot().playEffect(loc, this.effect, 0, 0, 0F, 0F, 0F, 0F, 1, 64);
+                ParticleUtility.spawnParticle(loc, this.particle, 0F, 0F, 0F, 0F, 1, 64);
             }, (rayCastResult) -> {
                 if (rayCastResult.getType() == ResultType.BLOCK && explodeBlocks) {
                     Block b = (Block) rayCastResult.get();

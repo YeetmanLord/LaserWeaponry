@@ -1,13 +1,28 @@
 package com.github.yeetmanlord.laserweaponry;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LaserWeaponry extends JavaPlugin implements CommandExecutor {
 
+    private static int getVersion() {
+        try {
+            Server server = Bukkit.getServer();
+            Object nmsServer = server.getClass().getMethod("getServer").invoke(server);
+            String versionStr = (String) nmsServer.getClass().getMethod("getVersion").invoke(nmsServer);
+            return Integer.parseInt(versionStr.split("\\.")[1]);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+        return 0;
+    }
+
     public static LaserWeaponry instance;
+    public static int version = getVersion();
 
     @Override
     public void onEnable() {
