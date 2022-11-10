@@ -17,6 +17,8 @@ public class Registry {
 
     public static final LaserWeapon SUPER_LASER_GUN = register(new SuperLaserGun());
 
+    public static final LaserWeapon DOOM_LASER = register(new DoomLaser());
+
     public static LaserWeapon register(LaserWeapon weapon) {
         nameToWeapon.put(ChatColor.translateAlternateColorCodes('&', weapon.name), weapon);
         return weapon;

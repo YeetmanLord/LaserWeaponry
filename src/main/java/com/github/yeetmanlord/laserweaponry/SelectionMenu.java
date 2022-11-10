@@ -18,9 +18,10 @@ public class SelectionMenu implements InventoryHolder {
             player.closeInventory();
             this.inv = Bukkit.createInventory(this, 27, "Select an item");
 
-            this.inv.setItem(11, Registry.LASER_EYES.getItem());
-            this.inv.setItem(13, Registry.LASER_GUN.getItem());
-            this.inv.setItem(15, Registry.SUPER_LASER_GUN.getItem());
+            this.inv.setItem(10, Registry.LASER_EYES.getItem());
+            this.inv.setItem(12, Registry.LASER_GUN.getItem());
+            this.inv.setItem(14, Registry.SUPER_LASER_GUN.getItem());
+            this.inv.setItem(16, Registry.DOOM_LASER.getItem());
 
             player.openInventory(this.inv);
         });

@@ -26,7 +26,7 @@ public final class LaserWeaponry extends JavaPlugin implements CommandExecutor {
         }));
 
         getServer().getPluginManager().registerEvents(new HandleClick(), this);
-        getServer().getPluginManager().registerEvents(new OnRightClick(), this);
+        getServer().getPluginManager().registerEvents(new Interactions(), this);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.github.yeetmanlord.laserweaponry;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.time.LocalDate;
@@ -34,5 +35,15 @@ public class LaserWeaponHandler {
             return true;
         }
         return LocalDateTime.now().isAfter(time);
+    }
+
+    public void onSneak(LaserWeapon weapon, boolean toggled) {
+        if (this.owner.isSneaking() || toggled) {
+            if (checkCooldown(weapon)) {
+                weapon.activate(this.owner);
+            }
+
+            Bukkit.getScheduler().scheduleSyncDelayedTask(LaserWeaponry.instance, () -> onSneak(weapon, false), 5L);
+        }
     }
 }
